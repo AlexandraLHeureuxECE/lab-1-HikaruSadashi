@@ -2,6 +2,7 @@ const boardEl = document.getElementById("board");
 const statusEl = document.getElementById("status");
 const restartBtn = document.getElementById("restart");
 const themeToggleBtn = document.getElementById("themeToggle");
+const threeDToggleBtn = document.getElementById("threeDToggle");
 
 const winningLines = [
   [0, 1, 2],
@@ -19,6 +20,7 @@ let currentPlayer = "X";
 let isGameOver = false;
 let winningCells = [];
 let themeIndex = 0;
+let isThreeD = false;
 
 const themes = [
   { id: "classic", label: "Classic" },
@@ -120,5 +122,18 @@ function handleThemeToggle() {
 
 themeToggleBtn.addEventListener("click", handleThemeToggle);
 
+function applyThreeD() {
+  boardEl.classList.toggle("is-3d", isThreeD);
+  threeDToggleBtn.textContent = `3D: ${isThreeD ? "On" : "Off"}`;
+}
+
+function handleThreeDToggle() {
+  isThreeD = !isThreeD;
+  applyThreeD();
+}
+
+threeDToggleBtn.addEventListener("click", handleThreeDToggle);
+
 init();
 applyTheme();
+applyThreeD();

@@ -28,6 +28,13 @@ body {
   gap: 12px;
 }
 
+.controls {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
 .header h1 {
   margin: 0 0 8px;
   font-size: 1.8rem;
@@ -83,6 +90,20 @@ body {
   background: #f0f1f6;
 }
 
+.three-d-toggle {
+  border-radius: 999px;
+  border: 1px solid #2c2c34;
+  background: #ffffff;
+  color: #2c2c34;
+  padding: 6px 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.three-d-toggle:hover {
+  background: #f0f1f6;
+}
+
 .restart {
   margin-top: 18px;
   padding: 10px 16px;
@@ -135,6 +156,16 @@ body[data-theme="dark"] .theme-toggle:hover {
   background: #2a2f3a;
 }
 
+body[data-theme="dark"] .three-d-toggle {
+  background: #1a1d24;
+  color: #f4f4f6;
+  border-color: #3b404c;
+}
+
+body[data-theme="dark"] .three-d-toggle:hover {
+  background: #2a2f3a;
+}
+
 body[data-theme="cyberpunk"] {
   background: #0b0014;
   color: #f9f871;
@@ -172,4 +203,38 @@ body[data-theme="cyberpunk"] .theme-toggle {
 
 body[data-theme="cyberpunk"] .theme-toggle:hover {
   background: #58f9ff;
+}
+
+body[data-theme="cyberpunk"] .three-d-toggle {
+  background: #00f5ff;
+  color: #0b0014;
+  border-color: #00f5ff;
+}
+
+body[data-theme="cyberpunk"] .three-d-toggle:hover {
+  background: #58f9ff;
+}
+
+.board.is-3d {
+  perspective: 800px;
+}
+
+.board.is-3d .cell {
+  transform-style: preserve-3d;
+  box-shadow: 0 10px 16px rgba(0, 0, 0, 0.18);
+  background: linear-gradient(145deg, #ffffff, #dfe3f2);
+}
+
+.board.is-3d .cell:active {
+  transform: translateY(2px);
+}
+
+body[data-theme="dark"] .board.is-3d .cell {
+  background: linear-gradient(145deg, #1f242e, #0d1016);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.45);
+}
+
+body[data-theme="cyberpunk"] .board.is-3d .cell {
+  background: linear-gradient(145deg, #19002b, #0b0014);
+  box-shadow: 0 0 14px rgba(255, 43, 214, 0.45);
 }
