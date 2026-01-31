@@ -21,6 +21,13 @@ body {
   padding: 20px;
 }
 
+.title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
 .header h1 {
   margin: 0 0 8px;
   font-size: 1.8rem;
@@ -62,6 +69,20 @@ body {
   color: #b06b00;
 }
 
+.theme-toggle {
+  border-radius: 999px;
+  border: 1px solid #2c2c34;
+  background: #ffffff;
+  color: #2c2c34;
+  padding: 6px 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  background: #f0f1f6;
+}
+
 .restart {
   margin-top: 18px;
   padding: 10px 16px;
@@ -75,4 +96,80 @@ body {
 
 .restart:hover {
   background: #1f1f24;
+}
+
+body[data-theme="dark"] {
+  background: #0f1116;
+  color: #f4f4f6;
+}
+
+body[data-theme="dark"] .cell {
+  background: #1a1d24;
+  color: #f4f4f6;
+  border-color: #3b404c;
+}
+
+body[data-theme="dark"] .cell.winner {
+  background: #2d2a18;
+  border-color: #b38f2a;
+  color: #f5d77a;
+}
+
+body[data-theme="dark"] .restart {
+  background: #f4f4f6;
+  color: #0f1116;
+  border-color: #f4f4f6;
+}
+
+body[data-theme="dark"] .restart:hover {
+  background: #d8dbe2;
+}
+
+body[data-theme="dark"] .theme-toggle {
+  background: #1a1d24;
+  color: #f4f4f6;
+  border-color: #3b404c;
+}
+
+body[data-theme="dark"] .theme-toggle:hover {
+  background: #2a2f3a;
+}
+
+body[data-theme="cyberpunk"] {
+  background: #0b0014;
+  color: #f9f871;
+}
+
+body[data-theme="cyberpunk"] .cell {
+  background: #12001f;
+  color: #00f5ff;
+  border-color: #ff2bd6;
+  box-shadow: 0 0 10px rgba(255, 43, 214, 0.3);
+}
+
+body[data-theme="cyberpunk"] .cell.winner {
+  background: #2a0040;
+  border-color: #00f5ff;
+  color: #f9f871;
+  box-shadow: 0 0 16px rgba(0, 245, 255, 0.5);
+}
+
+body[data-theme="cyberpunk"] .restart {
+  background: #ff2bd6;
+  color: #0b0014;
+  border-color: #ff2bd6;
+}
+
+body[data-theme="cyberpunk"] .restart:hover {
+  background: #ff5ae0;
+}
+
+body[data-theme="cyberpunk"] .theme-toggle {
+  background: #00f5ff;
+  color: #0b0014;
+  border-color: #00f5ff;
+}
+
+body[data-theme="cyberpunk"] .theme-toggle:hover {
+  background: #58f9ff;
 }

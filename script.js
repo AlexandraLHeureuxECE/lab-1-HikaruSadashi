@@ -1,6 +1,7 @@
 const boardEl = document.getElementById("board");
 const statusEl = document.getElementById("status");
 const restartBtn = document.getElementById("restart");
+const themeToggleBtn = document.getElementById("themeToggle");
 
 const winningLines = [
   [0, 1, 2],
@@ -17,6 +18,13 @@ let board = [];
 let currentPlayer = "X";
 let isGameOver = false;
 let winningCells = [];
+let themeIndex = 0;
+
+const themes = [
+  { id: "classic", label: "Classic" },
+  { id: "dark", label: "Dark" },
+  { id: "cyberpunk", label: "Cyberpunk" },
+];
 
 function init() {
   board = Array(9).fill("");
@@ -99,4 +107,18 @@ boardEl.addEventListener("click", (event) => {
 
 restartBtn.addEventListener("click", init);
 
+function applyTheme() {
+  const theme = themes[themeIndex];
+  document.body.dataset.theme = theme.id === "classic" ? "" : theme.id;
+  themeToggleBtn.textContent = `Theme: ${theme.label}`;
+}
+
+function handleThemeToggle() {
+  themeIndex = (themeIndex + 1) % themes.length;
+  applyTheme();
+}
+
+themeToggleBtn.addEventListener("click", handleThemeToggle);
+
 init();
+applyTheme();
